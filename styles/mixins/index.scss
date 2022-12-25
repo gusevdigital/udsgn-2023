@@ -1,0 +1,73 @@
+@use "sass:map";
+
+@mixin breakpoint($val: large) {
+    @if ($val== "small") {
+        @content;
+    } @else {
+        $width: map-get($breakpoints, $val);
+        $width: ($width / 16) + rem;
+
+        @media only screen and (min-width: #{$width}) {
+            @content;
+        }
+    }
+}
+
+/*
+* HELPER COLORS
+*/
+@mixin generate-helper-colors($colors) {
+    @each $name, $color in $colors {
+        .bg-#{"" + $name} {
+            background-color: $color;
+        }
+
+        .bg-#{"" + $name}-light {
+            background-color: lighten($color, 33%);
+        }
+
+        .text-#{"" + $name} {
+            color: $color;
+        }
+
+        .text-#{"" + $name}-light {
+            color: lighten($color, 33%);
+        }
+    }
+}
+
+/*
+* HEADERS
+*/
+@mixin generate-headers($headers-sizes) {
+    @each $breakpoint, $headers in $headers-sizes {
+        @include breakpoint(#{"" + $breakpoint}) {
+            @each $tag, $data in $headers {
+                @each $attr, $val in $data {
+                    #{"" + $tag},
+                    .#{"" + $tag} {
+                        @if ($attr == "size") {
+                            font-size: #{"" + $val};
+                        }
+
+                        @if ($attr == "weight") {
+                            font-weight: #{"" + $val};
+                        }
+
+                        line-height: $header-line-height;
+                        margin-bottom: $header-margin;
+                    }
+                }
+            }
+        }
+    }
+}
+
+@mixin header-style($tag) {
+    @each $breakpoint, $headers-tags in $headers {
+        @include breakpoint(#{"" + $breakpoint}) {
+            font-size: map-get(map-get($headers-tags, $tag), "size");
+            font-weight: map-get(map-get($headers-tags, $tag), "weight");
+        }
+    }
+}

@@ -1,0 +1,17 @@
+// Headers
+@include generate-headers($headers);
+
+// Links
+a {
+    text-decoration: none;
+    color: $pink;
+    transition: all $transition-time;
+
+    &:hover {
+        color: $pink;
+    }
+}
+
+p {
+    margin-bottom: 1rem;
+}

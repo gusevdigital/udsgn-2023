@@ -1,0 +1,8 @@
+// Alignment
+$alignments: left, center, right;
+
+@each $alignment in $alignments {
+    .text-#{$alignment} {
+        text-align: $alignment;
+    }
+}
