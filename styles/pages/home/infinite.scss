@@ -1,0 +1,46 @@
+.home {
+    &-infinite {
+        display: flex;
+        background-color: $pink;
+        border: $border-width solid $black;
+        width: 100%;
+        overflow: hidden;
+        padding: 2rem 0;
+
+        ul {
+            display: flex;
+            min-width: 400vw;
+            justify-content: space-around;
+            animation: infiniteTextAnimation 18s infinite linear;
+
+            @include breakpoint(medium) {
+                min-width: 300vw;
+            }
+
+            @include breakpoint(large) {
+                min-width: 200vw;
+            }
+
+            li {
+                display: inline-flex;
+                text-transform: lowercase;
+                color: $black;
+                font-size: 1.5rem;
+                font-weight: 700 !important;
+
+                @include breakpoint(medium) {
+                    font-size: 2.25rem;
+                }
+            }
+        }
+    }
+}
+
+@keyframes infiniteTextAnimation {
+    0% {
+        transform: translateX(0%);
+    }
+    100% {
+        transform: translateX(-50%);
+    }
+}

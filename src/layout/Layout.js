@@ -1,17 +1,11 @@
 import Header from './Header';
 import Footer from './Footer';
-import NoiseImg from '../../public/noise.png';
+import Noise from './Noise';
 
-const Layout = ({ children, className = '' }) => {
+const Layout = ({ children }) => {
     return (
         <>
-            {/* <div
-                className="noise"
-                style={{
-                    backgroundImage: `url("${NoiseImg.src}")`,
-                }}
-            ></div> */}
-
+            <Noise />
             <Header />
             {children}
             <Footer />

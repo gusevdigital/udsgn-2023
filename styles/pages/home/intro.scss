@@ -1,0 +1,61 @@
+.home {
+    &-intro {
+        background-color: $white;
+        padding-top: 2rem;
+        overflow: hidden;
+
+        .noise {
+            margin-top: -10rem;
+            margin-bottom: -10rem;
+            height: calc(100vh + 20rem);
+        }
+
+        .container {
+            position: relative;
+            z-index: 2;
+            margin-bottom: 3rem;
+            display: flex;
+            justify-content: center;
+        }
+
+        @include breakpoint(large) {
+            padding-top: 5rem;
+
+            .container {
+                margin-bottom: 5rem;
+            }
+        }
+
+        &__art {
+            position: relative;
+            display: flex;
+            justify-content: center;
+            width: 100%;
+            max-width: 1120px;
+            margin: 0 auto -2rem;
+
+            &__stone {
+                position: absolute;
+                z-index: 2;
+
+                &--left {
+                    width: 15%;
+                    left: 14%;
+                    top: -10%;
+                }
+
+                &--right {
+                    width: 15%;
+                    left: 31%;
+                    top: 3%;
+                }
+
+                &--up {
+                    width: 18%;
+                    left: 24%;
+                    top: -27%;
+                }
+            }
+        }
+    }
+}

@@ -6,17 +6,17 @@ import { Montserrat } from '@next/font/google';
 const montserrat = Montserrat({
     subsets: ['latin'],
     display: 'swap',
-    weight: ['400', '600', '700', '800'],
+    weight: ['400', '600', '700', '900'],
 });
 
 export default function App({ Component, pageProps }) {
     // Hide splash screen when we are server side
-    // useEffect(() => {
-    //     if (typeof window !== 'undefined') {
-    //         const loader = document.getElementById('globalLoader');
-    //         if (loader) loader.style.display = 'none';
-    //     }
-    // }, []);
+    useEffect(() => {
+        if (typeof window !== 'undefined') {
+            const loader = document.getElementById('loader');
+            if (loader) loader.classList.add('hidden');
+        }
+    }, []);
 
     return (
         <>

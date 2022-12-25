@@ -56,6 +56,10 @@
 
                         line-height: $header-line-height;
                         margin-bottom: $header-margin;
+
+                        i {
+                            color: $pink;
+                        }
                     }
                 }
             }

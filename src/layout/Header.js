@@ -24,26 +24,29 @@ const Header = () => {
         scrollTo(e);
     };
 
-    scroll &&
-        scroll.on('scroll', e => {
-            const headerHeight = header.current.getBoundingClientRect().height;
+    useEffect(() => {
+        scroll &&
+            scroll.on('scroll', e => {
+                const headerHeight =
+                    header.current.getBoundingClientRect().height;
 
-            // Hide
-            if (
-                e.direction === 'down' &&
-                !isHidden.current &&
-                e.scroll.y > headerHeight + bufferScroll
-            ) {
-                isHidden.current = true;
-                forceUpdate();
-            }
+                // Hide
+                if (
+                    e.direction === 'down' &&
+                    !isHidden.current &&
+                    e.scroll.y > headerHeight + bufferScroll
+                ) {
+                    isHidden.current = true;
+                    forceUpdate();
+                }
 
-            // Show
-            if (e.direction === 'up' && isHidden.current) {
-                isHidden.current = false;
-                forceUpdate();
-            }
-        });
+                // Show
+                if (e.direction === 'up' && isHidden.current) {
+                    isHidden.current = false;
+                    forceUpdate();
+                }
+            });
+    }, [scroll]);
 
     return (
         <motion.div
