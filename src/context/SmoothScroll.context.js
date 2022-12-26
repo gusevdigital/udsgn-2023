@@ -6,29 +6,19 @@ export const Context = createContext({
 
 export const SmoothScrollProvider = ({ children, options = {} }) => {
     const defaultOptions = {
-        // smooth: true,
-        // getDirection: true,
-        // mobile: {
-        //     smooth: true,
-        //     breakpoint: 0,
-        // },
-        // tablet: {
-        //     smooth: true,
-        //     breakpoint: 0,
-        // },
         smooth: true,
         reloadOnContextChange: true,
         getDirection: true,
         touchMultiplier: 2,
         smoothMobile: 0,
-        smartphone: {
-            smooth: !0,
-            breakpoint: 767,
-        },
-        tablet: {
-            smooth: !1,
-            breakpoint: 1024,
-        },
+        // smartphone: {
+        //     smooth: !0,
+        //     breakpoint: 767,
+        // },
+        // tablet: {
+        //     smooth: !1,
+        //     breakpoint: 1024,
+        // },
     };
     const [scroll, setScroll] = useState(null);
 

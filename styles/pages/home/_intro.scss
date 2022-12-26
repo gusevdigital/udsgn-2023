@@ -1,7 +1,7 @@
 .home {
     &-intro {
         background-color: $white;
-        padding-top: 2rem;
+        padding-top: 7rem;
         overflow: hidden;
 
         .noise {
@@ -19,7 +19,7 @@
         }
 
         @include breakpoint(large) {
-            padding-top: 5rem;
+            padding-top: 12rem;
 
             .container {
                 margin-bottom: 5rem;

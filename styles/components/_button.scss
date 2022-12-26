@@ -1,0 +1,22 @@
+button {
+    cursor: pointer;
+}
+
+.button {
+    cursor: pointer;
+    display: inline-flex;
+    background-color: $pink;
+    border: $border-width solid $black;
+    font-size: 1.25rem;
+    font-weight: 600;
+    text-transform: lowercase;
+    padding: 0.75rem 1.25rem;
+    color: $white;
+    box-shadow: 0.5rem 0.5rem 0 0 $black;
+    transition: box-shadow $transition-time;
+
+    &:hover {
+        color: $white;
+        box-shadow: 0 0 0 0 $black;
+    }
+}
