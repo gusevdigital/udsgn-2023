@@ -1,6 +1,6 @@
 import { Html, Head, Main, NextScript } from 'next/document';
 import loaderStyle from '../src/layout/loader.style';
-import Loader from '../src/layout/Loader';
+import InitLoader from '../src/layout/InitLoader';
 
 export default function Document() {
     return (
@@ -10,7 +10,7 @@ export default function Document() {
                 <style>{loaderStyle}</style>
             </head>
             <body>
-                <Loader />
+                <InitLoader />
                 <Main />
                 <NextScript />
             </body>

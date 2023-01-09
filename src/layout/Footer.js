@@ -1,8 +1,13 @@
 const Footer = () => {
     return (
-        <footer data-scroll-section>
-            {[...Array(20)].map(() => (
-                <p>
+        <footer
+            data-scroll-section
+            style={{
+                paddingTop: '200px',
+            }}
+        >
+            {[...Array(20)].map((_, i) => (
+                <p key={i}>
                     Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed
                     do eiusmod tempor incididunt ut labore et dolore magna
                     aliqua. Ut enim ad minim veniam, quis nostrud exercitation

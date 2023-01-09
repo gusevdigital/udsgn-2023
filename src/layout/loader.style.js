@@ -9,25 +9,37 @@ body {
     display: block;
 }
 
-#loader {
+#loader,
+#initLoader {
     position: fixed;
     z-index: 9999;
     background-color: #ff42a7;
     display: flex;
     left: 0;
-    right: 0;
     top: 0;
     width: 100vw;
     height: 100vh;
     justify-content: center;
     align-items: center;
     border-radius: 0;
-    transition: top .6s cubic-bezier(0.65, 0, 0.35, 1), visibility .6s linear;
+    transform: scaleX(1);
+    transform-origin: 0;
+    transition: transform .5s cubic-bezier(0.65, 0, 0.35, 1);
 }
 
-#loader.hidden {
-    top: -100%;
-    visibility: hidden;
+#loader {
+    transform: scaleX(0);
+    transform-origin: 100%;
+}
+
+#initLoader.hidden {
+    transform: scaleX(0);
+    transform-origin: 100%;
+}
+
+#loader.active {
+    transform: scaleX(1);
+    transform-origin: 0;
 }
 
 #loader svg path {

@@ -4,9 +4,13 @@ section {
 }
 
 .section {
-    padding-top: 3rem;
+    padding-top: 4rem;
 
     @include breakpoint(large) {
-        padding-top: 6rem;
+        padding-top: 8rem;
+    }
+
+    &--horizontal {
+        width: fit-content;
     }
 }

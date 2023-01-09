@@ -1,7 +1,11 @@
 import '../styles/main.scss';
-import { useEffect } from 'react';
+import { useEffect, useState } from 'react';
 import Head from 'next/head';
 import { Montserrat } from '@next/font/google';
+import Router from 'next/router';
+import Loader from '../src/layout/Loader';
+import ScrollContainer from '../src/layout/ScrollContainer';
+import Layout from '../src/layout/Layout';
 
 const montserrat = Montserrat({
     subsets: ['latin'],
@@ -10,10 +14,29 @@ const montserrat = Montserrat({
 });
 
 export default function App({ Component, pageProps }) {
-    // Hide splash screen when we are server side
+    const [loading, setLoading] = useState(false);
+
+    useEffect(() => {
+        // Used for page transition
+        const start = () => {
+            setLoading(true);
+        };
+        const end = () => {
+            setLoading(false);
+        };
+        Router.events.on('routeChangeStart', start);
+        Router.events.on('routeChangeComplete', end);
+        Router.events.on('routeChangeError', end);
+        return () => {
+            Router.events.off('routeChangeStart', start);
+            Router.events.off('routeChangeComplete', end);
+            Router.events.off('routeChangeError', end);
+        };
+    }, []);
+
     useEffect(() => {
         if (typeof window !== 'undefined') {
-            const loader = document.getElementById('loader');
+            const loader = document.getElementById('initLoader');
             if (loader) loader.classList.add('hidden');
         }
     }, []);
@@ -26,15 +49,16 @@ export default function App({ Component, pageProps }) {
                 <meta name="author" content="Gusev Digital" />
                 <meta
                     name="viewport"
-                    content="widht=device-width, initial-scale=1.0"
+                    content="width=device-width, initial-scale=1.0"
                 />
             </Head>
-            <main
-                data-scroll-container
-                className={`App ${montserrat.className}`}
-            >
-                <Component {...pageProps} />
-            </main>
+            <ScrollContainer>
+                <main className={`App ${montserrat.className}`}>
+                    <Layout loading={loading}>
+                        <Component {...pageProps} />
+                    </Layout>
+                </main>
+            </ScrollContainer>
         </>
     );
 }

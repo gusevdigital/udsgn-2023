@@ -1,5 +1,10 @@
 import { createContext, useContext, useEffect, useState } from 'react';
 
+import { gsap } from 'gsap';
+import ScrollTrigger from 'gsap/dist/ScrollTrigger';
+
+gsap.registerPlugin(ScrollTrigger);
+
 export const Context = createContext({
     scroll: null,
 });
@@ -9,7 +14,7 @@ export const SmoothScrollProvider = ({ children, options = {} }) => {
         smooth: true,
         reloadOnContextChange: true,
         getDirection: true,
-        touchMultiplier: 2,
+        touchMultiplier: 1,
         smoothMobile: 0,
         // smartphone: {
         //     smooth: !0,
@@ -28,16 +33,44 @@ export const SmoothScrollProvider = ({ children, options = {} }) => {
                 try {
                     const LocomotiveScroll = (await import('locomotive-scroll'))
                         .default; //! Research why ".default" at the end
-                    setScroll(
-                        new LocomotiveScroll({
-                            el:
-                                document.querySelector(
-                                    '[data-scroll-container]'
-                                ) ?? undefined,
-                            ...defaultOptions,
-                            ...options,
-                        })
+
+                    const scroll = new LocomotiveScroll({
+                        el:
+                            document.querySelector('[data-scroll-container]') ??
+                            undefined,
+                        ...defaultOptions,
+                        ...options,
+                    });
+                    setScroll(scroll);
+
+                    scroll.on('scroll', ScrollTrigger.update);
+
+                    ScrollTrigger.scrollerProxy('[data-scroll-container]', {
+                        scrollTop(value) {
+                            return arguments.length
+                                ? 0
+                                : scroll.scroll.instance.scroll.y;
+                        },
+                        getBoundingClientRect() {
+                            return {
+                                top: 0,
+                                left: 0,
+                                width: window.innerWidth,
+                                height: window.innerHeight,
+                            };
+                        },
+
+                        pinType: document.querySelector('[data-scroll-section]')
+                            .style.transform
+                            ? 'transform'
+                            : 'fixed',
+                    });
+
+                    ScrollTrigger.addEventListener('refresh', () =>
+                        scroll.update()
                     );
+
+                    ScrollTrigger.refresh();
                 } catch (error) {
                     throw Error(`[SmoothScrollProvider]: ${error}`);
                 }

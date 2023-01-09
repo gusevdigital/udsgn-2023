@@ -1,8 +1,15 @@
 .animate {
     opacity: 0;
-    transition: opacity 1s ease-in-out;
+    transform: translate3d(0, 2rem, 0);
+    transition: opacity 1s ease-in-out, transform 1s ease-in-out;
 
     &.is-inview {
         opacity: 1;
+        transform: translate3d(0, 0, 0);
     }
+}
+
+.is-inview .animate {
+    opacity: 1;
+    transform: translate3d(0, 0, 0);
 }

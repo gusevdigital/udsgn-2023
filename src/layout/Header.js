@@ -1,11 +1,12 @@
 import { useEffect, useState, useRef } from 'react';
-import useScrollContext from '../context/SmoothScroll.context';
+import Link from 'next/link';
 import { motion } from 'framer-motion';
 import useForceUpdate from '../hooks/useForceUpdate';
 import { items } from '../data/nav';
+import { useLocomotiveScroll } from 'react-locomotive-scroll';
 
-const Header = () => {
-    const { scroll } = useScrollContext();
+const Header = ({ loading }) => {
+    const { scroll } = useLocomotiveScroll();
     const header = useRef();
     const bufferScroll = 200;
     const isHidden = useRef(false);
@@ -26,6 +27,7 @@ const Header = () => {
 
     useEffect(() => {
         scroll &&
+            header.current &&
             scroll.on('scroll', e => {
                 const headerHeight =
                     header.current.getBoundingClientRect().height;
@@ -47,6 +49,13 @@ const Header = () => {
                 }
             });
     }, [scroll]);
+
+    useEffect(() => {
+        if (!loading) {
+            isHidden.current = false;
+            forceUpdate();
+        }
+    }, [loading]);
 
     return (
         <motion.div
@@ -77,13 +86,13 @@ const Header = () => {
             </nav>
             <div className="container">
                 <div className="header-inner">
-                    <a
-                        href="#"
+                    <Link
+                        href="/"
                         title="<?php echo get_bloginfo('name'); ?>"
                         className="logo"
                     >
                         u-dsgn
-                    </a>
+                    </Link>
                     <nav className="header-nav">
                         <ul>
                             {items.map(({ href, title }) => (

@@ -8,9 +8,10 @@ const FeaturedBox = ({
     theme = 'dark',
     color = 'blue',
     img = null,
+    className = '',
 }) => {
     return (
-        <div className={`fbox fbox--${theme} fbox--${color}`}>
+        <div className={`fbox fbox--${theme} fbox--${color} ${className}`}>
             <div className="fbox-content">
                 <div className="fbox-label">
                     {number ? (
@@ -24,7 +25,7 @@ const FeaturedBox = ({
                 {tags && tags.length ? (
                     <ul className="fbox-tags">
                         {tags.map(tag => (
-                            <li>{tag}</li>
+                            <li key={tag}>{tag}</li>
                         ))}
                     </ul>
                 ) : null}
@@ -32,7 +33,7 @@ const FeaturedBox = ({
             {img ? (
                 <div className="fbox-img">
                     <div className="fbox-img__inner">
-                        <Image src={img} title={title} />
+                        <Image src={img} alt={title} />
                     </div>
                 </div>
             ) : null}
