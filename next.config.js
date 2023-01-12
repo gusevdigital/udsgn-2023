@@ -2,7 +2,7 @@
 const nextConfig = {
     reactStrictMode: true,
     images: {
-        domains: ['udsgnapi.local', 'u-dsgn.com'],
+        domains: ['u-dsgn.com', 'admin.u-dsgn.com'],
     },
 };
 

@@ -104,7 +104,11 @@ const ProjectContent = ({ project }) => {
 
         if (project.acf_fc_layout === 'quote')
             contentMap.push(
-                <SectionQuote quote={project.quote} source={project.source} />
+                <SectionQuote
+                    quote={project.quote}
+                    source={project.source}
+                    key={i}
+                />
             );
     });
 
