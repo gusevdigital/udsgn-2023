@@ -1,0 +1,17 @@
+.project {
+    &-intro {
+        padding-top: 3rem;
+        padding-bottom: 3rem;
+        margin-top: 5rem;
+
+        @include breakpoint(large) {
+            padding-top: 6rem;
+            padding-bottom: 6rem;
+        }
+
+        &__title {
+            text-transform: none;
+            margin-bottom: 0.5rem;
+        }
+    }
+}

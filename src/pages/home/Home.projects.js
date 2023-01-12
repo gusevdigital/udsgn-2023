@@ -24,7 +24,7 @@ const Projects = ({ projects }) => {
                             ? projects.map((project, i) => (
                                   <SwiperSlide key={project.id}>
                                       <Link
-                                          href={`/${project.id}`}
+                                          href={`/${project.slug}`}
                                           title={project.title}
                                           className={`projects-item ${
                                               i % 2 ? 'odd' : ''

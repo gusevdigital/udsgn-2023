@@ -1,0 +1,15 @@
+.project-section-quote {
+    &__sign {
+        width: 4rem;
+        height: auto;
+
+        @include breakpoint(large) {
+            width: 6rem;
+            margin-bottom: 2rem;
+        }
+    }
+
+    &__source {
+        font-weight: 600;
+    }
+}

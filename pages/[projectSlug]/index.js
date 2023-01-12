@@ -1,6 +1,7 @@
 import Image from 'next/image';
 import Head from 'next/head';
 import PageWrapper from '../../src/layout/PageWrapper';
+import ProjectPage from '../../src/pages/Project.page';
 
 export const getStaticPaths = async () => {
     const res = await fetch(`${process.env.WP_API_URL}/projects`);
@@ -8,7 +9,7 @@ export const getStaticPaths = async () => {
 
     const paths = data.map(project => ({
         params: {
-            projectId: project.id.toString(),
+            projectSlug: project.slug.toString(),
         },
     }));
 
@@ -19,9 +20,9 @@ export const getStaticPaths = async () => {
 };
 
 export const getStaticProps = async context => {
-    const id = context.params.projectId;
+    const slug = context.params.projectSlug;
 
-    const res = await fetch(`${process.env.WP_API_URL}/project/${id}`);
+    const res = await fetch(`${process.env.WP_API_URL}/project/${slug}`);
 
     const data = await res.json();
 
@@ -44,7 +45,8 @@ const Project = ({ project }) => {
                 />
             </Head>
             <PageWrapper>
-                <section data-scroll-section>
+                <ProjectPage project={project} />
+                {/* <section data-scroll-section>
                     <div className="project-intro">
                         <Image
                             src={project.image}
@@ -55,7 +57,7 @@ const Project = ({ project }) => {
                         />
                         <h1>{project.title}</h1>
                     </div>
-                </section>
+                </section> */}
             </PageWrapper>
         </>
     );

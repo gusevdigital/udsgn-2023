@@ -6,6 +6,11 @@
         width: 100%;
         overflow: hidden;
         padding: 2rem 0;
+        margin-bottom: 2rem;
+
+        @include breakpoint(large) {
+            margin-bottom: 4rem;
+        }
 
         ul {
             display: flex;

@@ -30,6 +30,10 @@
     &-nav {
         display: none;
 
+        &.always-visible {
+            display: flex !important;
+        }
+
         @include breakpoint(large) {
             display: flex;
         }

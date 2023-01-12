@@ -23,7 +23,7 @@ const FeaturedBox = ({
                 </div>
                 {title ? <h4 className="fbox-title">{title}</h4> : null}
                 {tags && tags.length ? (
-                    <ul className="fbox-tags">
+                    <ul className="tags">
                         {tags.map(tag => (
                             <li key={tag}>{tag}</li>
                         ))}
