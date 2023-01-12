@@ -42,6 +42,7 @@ const ProjectIntro = ({ project }) => {
                     width={1920}
                     height={1150}
                     className="project-intro__img"
+                    priority={true}
                 />
             </section>
         </>

@@ -88,6 +88,8 @@ const SectionQuote = ({ quote, source }) => {
 const ProjectContent = ({ project }) => {
     const contentMap = [];
 
+    if (!project.sections || !project.sections.length) return null;
+
     project.sections.forEach((project, i) => {
         if (project.acf_fc_layout === 'text')
             contentMap.push(
