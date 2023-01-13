@@ -1,4 +1,5 @@
 .form {
+    position: relative;
     max-width: 48rem;
     width: 100%;
     border-radius: $large-border-radius;
@@ -18,118 +19,32 @@
     .button {
         width: 100%;
     }
-}
 
-.input {
-    position: relative;
-    margin-bottom: 2.5rem;
-
-    &__field {
-        width: 100%;
-        background-color: transparent;
-        border: $border-width solid $white;
-        border-radius: $large-border-radius;
-        font-size: 1rem;
-        font-family: $body-font;
-        color: $white;
-        padding: 0.75rem 1rem;
-        outline: none;
-        transition: border-color $transition-time;
-
-        &::placeholder {
-            color: rgba($white, 0.6);
-            opacity: 1;
-        }
-
-        &--error {
-            border-color: $pink;
-        }
-    }
-
-    &--textarea {
-        textarea {
-            resize: none;
-            min-height: 7rem;
-        }
-    }
-
-    &__error {
-        font-size: $small-font-size;
-        text-transform: lowercase;
-        font-weight: 600;
-        color: $pink;
+    &__stone {
         position: absolute;
-        top: 1.5rem;
-        right: 1rem;
-        transform: translateY(-50%);
-    }
-}
-
-.budget {
-    position: relative;
-    margin-bottom: 1.5rem;
-
-    &__container {
-        width: 100%;
-        display: flex;
-        flex-direction: column;
+        z-index: 2;
+        display: none;
 
         @include breakpoint(large) {
-            flex-direction: row;
-            align-items: center;
+            display: block;
         }
-    }
 
-    &__label {
-        font-size: 1.5rem;
-        margin-right: auto;
-        margin-bottom: 1rem;
-        font-weight: 600;
-    }
+        &--left {
+            width: 35%;
+            left: -25%;
+            top: 30%;
+        }
 
-    &__options {
-        display: flex;
-        flex-wrap: wrap;
-        list-style: none;
-        margin: 0;
-        padding: 0;
+        &--up {
+            width: 40%;
+            right: -23%;
+            top: -5%;
+        }
 
-        li {
-            position: relative;
-            margin-right: 1.5rem;
-            margin-bottom: 1rem;
-            overflow: hidden;
-
-            &:last-of-type {
-                margin-right: 0;
-            }
-
-            label {
-                display: inline-flex;
-                line-height: 1;
-                border: 1px solid $black;
-                background-color: $white;
-                padding: 0.75rem 1rem;
-                border-radius: 100rem;
-                color: $black;
-                font-weight: bold;
-                font-size: 1rem;
-                white-space: nowrap;
-                transition: background-color $transition-time, border-color $transition-time, color $transition-time;
-                cursor: pointer;
-            }
-
-            input {
-                position: absolute;
-                opacity: 0;
-                visibility: hidden;
-
-                &:checked ~ label {
-                    background-color: $pink;
-                    border-color: $pink;
-                    color: $white;
-                }
-            }
+        &--bottom {
+            width: 22%;
+            right: -12%;
+            bottom: -15%;
         }
     }
 }

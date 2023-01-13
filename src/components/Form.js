@@ -4,6 +4,12 @@ import { object, string } from 'yup';
 import { toast } from 'react-toastify';
 import { TextInput, TextareaInput, RadioInput } from './Inputs';
 import { timeout } from '../inc/utils';
+import StoneUp from '../../public/home/home-intro-stone-up.png';
+import StoneLeft from '../../public/home/home-intro-stone-left.png';
+import StoneRight from '../../public/home/home-intro-stone-right.png';
+import Image from 'next/image';
+
+import { motion } from 'framer-motion';
 
 const initialValues = {
     name: '',
@@ -115,6 +121,63 @@ const From = () => {
                     </Form>
                 )}
             </Formik>
+            <motion.div
+                className="form__stone form__stone--left"
+                initial={{ y: '-6px' }}
+                animate={{ y: '6px' }}
+                transition={{
+                    duration: 4,
+                    repeat: Infinity,
+                    repeatType: 'reverse',
+                }}
+            >
+                <Image
+                    src={StoneLeft}
+                    alt="Form stone left"
+                    width={270}
+                    height={430}
+                    data-scroll
+                    data-scroll-speed="1"
+                />
+            </motion.div>
+            <motion.div
+                className="form__stone form__stone--bottom"
+                initial={{ y: '-6px' }}
+                animate={{ y: '6px' }}
+                transition={{
+                    duration: 3,
+                    repeat: Infinity,
+                    repeatType: 'reverse',
+                }}
+            >
+                <Image
+                    src={StoneRight}
+                    alt="Form stone right"
+                    width={143}
+                    height={240}
+                    data-scroll
+                    data-scroll-speed="0.5"
+                />
+            </motion.div>
+            <motion.div
+                className="form__stone form__stone--up"
+                initial={{ y: '-6px' }}
+                animate={{ y: '6px' }}
+                transition={{
+                    duration: 3,
+                    repeat: Infinity,
+                    repeatType: 'reverse',
+                    repeatDelay: 0.5,
+                }}
+            >
+                <Image
+                    src={StoneUp}
+                    alt="Form stone up"
+                    width={162}
+                    height={221}
+                    data-scroll-speed="2"
+                />
+            </motion.div>
         </div>
     );
 };
