@@ -5,6 +5,7 @@ button {
 .button {
     cursor: pointer;
     display: inline-flex;
+    justify-content: center;
     background-color: $pink;
     border: $border-width solid $black;
     font-size: 1.25rem;
@@ -16,7 +17,26 @@ button {
     transition: box-shadow $transition-time;
 
     &:hover {
-        color: $white;
         box-shadow: 0 0 0 0 $black;
+    }
+
+    &.loading {
+        box-shadow: 0 0 0 0 $black;
+        background: linear-gradient(
+            90deg,
+            rgba(255, 66, 167, 1) 25%,
+            rgba(249, 124, 190, 1) 50%,
+            rgba(255, 66, 167, 1) 75%
+        );
+        animation: animateButton 3s ease infinite;
+    }
+}
+
+@keyframes animateButton {
+    0% {
+        background-position: -50%;
+    }
+    100% {
+        background-position: 150%;
     }
 }

@@ -4,7 +4,7 @@ import PageWrapper from '../../src/layout/PageWrapper';
 import ProjectPage from '../../src/pages/Project.page';
 
 export const getStaticPaths = async () => {
-    const res = await fetch(`${process.env.WP_API_URL}/projects`);
+    const res = await fetch(`${process.env.NEXT_PUBLIC_WP_API_URL}/projects`);
     const data = await res.json();
 
     const paths = data.map(project => ({
@@ -22,7 +22,9 @@ export const getStaticPaths = async () => {
 export const getStaticProps = async context => {
     const slug = context.params.projectSlug;
 
-    const res = await fetch(`${process.env.WP_API_URL}/project/${slug}`);
+    const res = await fetch(
+        `${process.env.NEXT_PUBLIC_WP_API_URL}/project/${slug}`
+    );
 
     const data = await res.json();
 

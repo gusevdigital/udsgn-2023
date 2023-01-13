@@ -1,12 +1,11 @@
+import Form from '../components/Form';
+
 const Footer = () => {
     return (
-        <footer
-            data-scroll-section
-            style={{
-                paddingTop: '200px',
-            }}
-        >
-            Footer here
+        <footer className="footer section" data-scroll-section>
+            <div className="container">
+                <Form />
+            </div>
         </footer>
     );
 };

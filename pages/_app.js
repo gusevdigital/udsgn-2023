@@ -1,11 +1,12 @@
 import '../styles/main.scss';
+import 'react-toastify/dist/ReactToastify.css';
 import { useEffect, useState } from 'react';
 import Head from 'next/head';
 import { Montserrat } from '@next/font/google';
 import Router from 'next/router';
-import Loader from '../src/layout/Loader';
 import ScrollContainer from '../src/layout/ScrollContainer';
 import Layout from '../src/layout/Layout';
+import { ToastContainer, toast } from 'react-toastify';
 
 const montserrat = Montserrat({
     subsets: ['latin'],
@@ -59,6 +60,7 @@ export default function App({ Component, pageProps }) {
                     </Layout>
                 </main>
             </ScrollContainer>
+            <ToastContainer position={toast.POSITION.BOTTOM_RIGHT} />
         </>
     );
 }

@@ -10,12 +10,16 @@
   },
   "dependencies": {
     "@next/font": "13.0.7",
+    "formik": "^2.2.9",
     "framer-motion": "^7.10.3",
     "next": "13.0.7",
     "react": "18.2.0",
     "react-dom": "18.2.0",
     "react-locomotive-scroll": "^0.2.2",
-    "swiper": "^8.4.5"
+    "react-toastify": "^9.1.1",
+    "swiper": "^8.4.5",
+    "uuid": "^9.0.0",
+    "yup": "^0.32.11"
   },
   "devDependencies": {
     "sass": "^1.57.1"

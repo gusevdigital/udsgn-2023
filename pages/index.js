@@ -1,10 +1,9 @@
 import Head from 'next/head';
 import Home from '../src/pages/Home.page';
-import Layout from '../src/layout/Layout';
 import PageWrapper from '../src/layout/PageWrapper';
 
 export const getStaticProps = async () => {
-    const res = await fetch(`${process.env.WP_API_URL}/projects`);
+    const res = await fetch(`${process.env.NEXT_PUBLIC_WP_API_URL}/projects`);
 
     const data = await res.json();
 
