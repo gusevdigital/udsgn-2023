@@ -4,7 +4,7 @@ import Copyright from '../components/Copyright';
 
 const Footer = () => {
     return (
-        <footer className="footer section" data-scroll-section>
+        <footer className="footer section" id="contact" data-scroll-section>
             <div className="container">
                 <Form />
                 <Socials />
