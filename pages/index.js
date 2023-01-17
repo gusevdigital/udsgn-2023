@@ -3,19 +3,27 @@ import Home from '../src/pages/Home.page';
 import PageWrapper from '../src/layout/PageWrapper';
 
 export const getStaticProps = async () => {
-    const res = await fetch(`${process.env.NEXT_PUBLIC_WP_API_URL}/projects`);
+    const projectsResponse = await fetch(
+        `${process.env.NEXT_PUBLIC_WP_API_URL}/projects`
+    );
+    const projects = await projectsResponse.json();
 
-    const data = await res.json();
+    const homeResponse = await fetch(
+        `${process.env.NEXT_PUBLIC_WP_API_URL}/get-home-data`
+    );
+
+    const homeData = await homeResponse.json();
 
     return {
         props: {
-            projects: data,
+            projects,
+            homeData,
         },
         revalidate: 10,
     };
 };
 
-export default function IndexPage({ projects }) {
+export default function IndexPage({ projects, homeData }) {
     return (
         <>
             <Head>
@@ -32,7 +40,7 @@ export default function IndexPage({ projects }) {
             </Head>
 
             <PageWrapper>
-                <Home projects={projects} />
+                <Home projects={projects} data={homeData} />
             </PageWrapper>
         </>
     );

@@ -3,22 +3,44 @@ import { motion } from 'framer-motion';
 import Link from 'next/link';
 
 import { Swiper, SwiperSlide } from 'swiper/react';
-
-// Import Swiper styles
+import { Navigation } from 'swiper';
 import 'swiper/css';
+
+import IconArrowLeft from '../../../public/icons/arrow-left.svg';
 
 const Projects = ({ projects }) => {
     return (
-        <section className="section projects" data-scroll-section>
-            <div className="container">
-                <h2 className="margin-bottom-2 animate" data-scroll>
-                    Projects
-                </h2>
-                <div data-scroll className="animate">
+        <section className="section projects" id="projects" data-scroll-section>
+            <div className="container animate" data-scroll>
+                <div className="projects-header">
+                    <h2 className="projects-header__title">Projects</h2>
+                    <div className="projects-header__arrows">
+                        <button
+                            type="button"
+                            className="projects-header__arrows__prev"
+                        >
+                            <img src={IconArrowLeft.src} alt="Arrow left" />
+                        </button>
+                        <button
+                            type="button"
+                            className="projects-header__arrows__next"
+                        >
+                            <img src={IconArrowLeft.src} alt="Arrow right" />
+                        </button>
+                    </div>
+                </div>
+                <div>
                     <Swiper
                         slidesPerView={'auto'}
                         spaceBetween={40}
                         className="projects"
+                        grabCursor={true}
+                        modules={[Navigation]}
+                        navigation={{
+                            nextEl: '.projects-header__arrows__prev',
+                            prevEl: '.projects-header__arrows__next',
+                            disabledClass: 'disabled',
+                        }}
                     >
                         {projects
                             ? projects.map((project, i) => (

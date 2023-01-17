@@ -1,4 +1,4 @@
-const Home = () => {
+const About = ({ aboutData }) => {
     return (
         <section id="about" className="section" data-scroll-section>
             <div
@@ -9,26 +9,22 @@ const Home = () => {
             >
                 <div className="row">
                     <div className="cell large-6">
-                        <h3>
-                            I'm Julia — a digital designer & illustrator with
-                            2012 - present years experience.
-                        </h3>
+                        {aboutData.title ? <h3>{aboutData.title}</h3> : null}
                     </div>
                     <div className="cell large-6">
-                        <p className="margin-bottom-3">
-                            My clients are different business areas from
-                            startups and bloggers to large enterprises and
-                            innovative companies. I create attractive and
-                            creative solutions for my clients for their
-                            business.
-                        </p>
-                        <a
-                            href="https://google.com"
-                            target="_blank"
-                            className="button animate"
-                        >
-                            Download CV
-                        </a>
+                        {aboutData.text ? (
+                            <p className="margin-bottom-3">{aboutData.text}</p>
+                        ) : null}
+                        {aboutData.button_text && aboutData.button_link ? (
+                            <a
+                                href={aboutData.button_link}
+                                target="_blank"
+                                rel="noopener noreferrer"
+                                className="button animate"
+                            >
+                                {aboutData.button_text}
+                            </a>
+                        ) : null}
                     </div>
                 </div>
             </div>
@@ -36,4 +32,4 @@ const Home = () => {
     );
 };
 
-export default Home;
+export default About;

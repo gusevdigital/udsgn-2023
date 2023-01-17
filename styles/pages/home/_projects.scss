@@ -1,6 +1,54 @@
 .projects {
     width: 100%;
     height: 100%;
+    overflow: hidden;
+
+    &-header {
+        display: flex;
+        justify-content: space-between;
+        align-items: center;
+        margin-bottom: 2rem;
+
+        &__title {
+            margin-bottom: 0;
+        }
+
+        &__arrows {
+            display: flex;
+
+            button {
+                display: inline-flex;
+                align-items: center;
+                justify-content: center;
+                padding: 0.5rem;
+                cursor: pointer;
+                transition: opacity $transition-time;
+
+                &:hover {
+                    opacity: 0.7;
+                }
+
+                img {
+                    width: 2rem;
+                    height: auto;
+                }
+
+                &.disabled {
+                    opacity: 0.4;
+                }
+            }
+
+            &__prev {
+                margin-right: 0.5rem;
+            }
+
+            &__next {
+                img {
+                    transform: scaleX(-1);
+                }
+            }
+        }
+    }
 
     .swiper {
         overflow: visible;
@@ -12,6 +60,18 @@
         &-slide {
             width: 100%;
             min-width: 100%;
+
+            &-active {
+                .projects {
+                    &-item {
+                        box-shadow: 0.6rem 0.6rem 0 0 $blue;
+
+                        &.odd {
+                            box-shadow: 0.6rem 0.6rem 0 0 $pink;
+                        }
+                    }
+                }
+            }
         }
     }
 
@@ -25,11 +85,12 @@
         border-style: solid;
         border-width: $border-width;
         border-color: $blue;
-        box-shadow: 0.6rem 0.6rem 0 0 $blue;
+        box-shadow: 0 0 0 0 $blue;
+        transition: box-shadow $transition-time;
 
         &.odd {
             border-color: $pink;
-            box-shadow: 0.5rem 0.5rem 0 0 $pink;
+            box-shadow: 0 0 0 0 $pink;
         }
     }
 
@@ -47,6 +108,13 @@
             width: 100%;
             height: 100%;
             object-fit: cover;
+            transition: transform 4s cubic-bezier(0.5, 1, 0.89, 1);
+        }
+
+        &:hover {
+            img {
+                transform: scale(1.1);
+            }
         }
     }
 }

@@ -1,20 +1,19 @@
-const Texts = () => {
+const Texts = ({ texts }) => {
     return (
         <>
-            <li>UI design</li>
-            <li>Logo</li>
-            <li>WIX</li>
-            <li>Pos material</li>
+            {texts.map(text => (
+                <li key={text}>{text}</li>
+            ))}
         </>
     );
 };
 
-const InfiniteText = () => {
+const InfiniteText = ({ texts }) => {
     return (
         <section className="home-infinite" data-scroll-section>
             <ul>
-                <Texts />
-                <Texts />
+                <Texts texts={texts} />
+                <Texts texts={texts} />
             </ul>
         </section>
     );
