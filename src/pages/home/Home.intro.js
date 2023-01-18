@@ -11,7 +11,7 @@ const Intro = () => {
         <section className="home-intro" id="home" data-scroll-section>
             <Noise data-scroll data-scroll-sticky data-scroll-target="body" />
             <div className="container">
-                <h1 className="text-right" data-scroll>
+                <h1 className="text-right acc">
                     Digital <i>Designer</i> <br /> & Artist
                 </h1>
             </div>

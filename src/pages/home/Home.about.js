@@ -1,13 +1,8 @@
 const About = ({ aboutData }) => {
     return (
         <section id="about" className="section" data-scroll-section>
-            <div
-                className="container"
-                data-scroll
-                data-scroll-delay="0.4"
-                data-scroll-speed="2"
-            >
-                <div className="row">
+            <div className="container animate" data-scroll>
+                <div className="row acc">
                     <div className="cell large-6">
                         {aboutData.title ? <h3>{aboutData.title}</h3> : null}
                     </div>

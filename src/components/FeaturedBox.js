@@ -11,7 +11,7 @@ const FeaturedBox = ({
     className = '',
 }) => {
     return (
-        <div className={`fbox fbox--${theme} fbox--${color} ${className}`}>
+        <div className={`fbox fbox--${theme} fbox--${color} ${className} acc`}>
             <div className="fbox-content">
                 <div className="fbox-label">
                     {number ? (

@@ -33,12 +33,12 @@ const Projects = ({ projects }) => {
                     <Swiper
                         slidesPerView={'auto'}
                         spaceBetween={40}
-                        className="projects"
+                        className="projects acc"
                         grabCursor={true}
                         modules={[Navigation]}
                         navigation={{
-                            nextEl: '.projects-header__arrows__prev',
-                            prevEl: '.projects-header__arrows__next',
+                            prevEl: '.projects-header__arrows__prev',
+                            nextEl: '.projects-header__arrows__next',
                             disabledClass: 'disabled',
                         }}
                     >
