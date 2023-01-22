@@ -4,18 +4,20 @@ import PageWrapper from '../../src/layout/PageWrapper';
 import ProjectPage from '../../src/pages/Project.page';
 
 export const getStaticPaths = async () => {
-    const res = await fetch(`${process.env.NEXT_PUBLIC_WP_API_URL}/projects`);
-    const data = await res.json();
+    // const res = await fetch(`${process.env.NEXT_PUBLIC_WP_API_URL}/projects`);
+    // const data = await res.json();
 
-    const paths = data.map(project => ({
-        params: {
-            projectSlug: project.slug.toString(),
-        },
-    }));
+    // const paths = data.map(project => ({
+    //     params: {
+    //         projectSlug: project.slug.toString(),
+    //     },
+    // }));
 
     return {
-        paths,
-        fallback: false, // fallback page. if set to false, then will return 404 page for the fallback
+        // paths,
+        // fallback: false, // fallback page. if set to false, then will return 404 page for the fallback
+        paths: [],
+        fallback: 'blocking',
     };
 };
 
