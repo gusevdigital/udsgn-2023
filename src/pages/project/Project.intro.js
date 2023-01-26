@@ -7,16 +7,16 @@ const ProjectIntro = ({ project }) => {
                 <div className="container project-intro">
                     <div className="row">
                         <div className="cell large-6">
-                            <h1 className="h2 project-intro__title">
+                            <h1 className="h2 project-intro__title acc">
                                 {project.title}
                             </h1>
                             {project.subtitle ? (
-                                <p className="project-intro__subtitle">
+                                <p className="project-intro__subtitle acc">
                                     {project.subtitle}
                                 </p>
                             ) : null}
                             {project.cats && project.cats.length ? (
-                                <ul className="tags">
+                                <ul className="tags acc">
                                     {project.cats.map(cat => (
                                         <li key={cat}>{cat}</li>
                                     ))}
@@ -25,7 +25,7 @@ const ProjectIntro = ({ project }) => {
                         </div>
                         <div className="cell large-6">
                             <div
-                                className="project-intro__description"
+                                className="project-intro__description acc"
                                 dangerouslySetInnerHTML={{
                                     __html: project.description?.replace(
                                         /\n/g,
@@ -41,7 +41,7 @@ const ProjectIntro = ({ project }) => {
                     alt={project.title}
                     width={1920}
                     height={1150}
-                    className="project-intro__img"
+                    className="project-intro__img acc"
                     priority={true}
                 />
             </section>

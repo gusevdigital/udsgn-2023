@@ -1,21 +1,12 @@
-import Image from 'next/image';
 import Head from 'next/head';
 import PageWrapper from '../../src/layout/PageWrapper';
 import ProjectPage from '../../src/pages/Project.page';
+import NotFound from '../../src/pages/project/Project.notFound';
+import Loading from '../../src/pages/project/Project.loading';
+import { useRouter } from 'next/router';
 
 export const getStaticPaths = async () => {
-    // const res = await fetch(`${process.env.NEXT_PUBLIC_WP_API_URL}/projects`);
-    // const data = await res.json();
-
-    // const paths = data.map(project => ({
-    //     params: {
-    //         projectSlug: project.slug.toString(),
-    //     },
-    // }));
-
     return {
-        // paths,
-        // fallback: false, // fallback page. if set to false, then will return 404 page for the fallback
         paths: [],
         fallback: 'blocking',
     };
@@ -39,29 +30,21 @@ export const getStaticProps = async context => {
 };
 
 const Project = ({ project }) => {
+    const router = useRouter();
+
+    if (router.isFallback) return <Loading />;
+
+    if (project?.data?.status && project.data.status === 404)
+        return <NotFound />;
+
     return (
         <>
             <Head>
                 <title>{project.title}</title>
-                <meta
-                    name="description"
-                    content="Best digital designer evar!"
-                />
+                <meta name="description" content="U-dsgn" />
             </Head>
             <PageWrapper>
                 <ProjectPage project={project} />
-                {/* <section data-scroll-section>
-                    <div className="project-intro">
-                        <Image
-                            src={project.image}
-                            alt={project.title}
-                            width={1920}
-                            height={1150}
-                            className="project-intro__img"
-                        />
-                        <h1>{project.title}</h1>
-                    </div>
-                </section> */}
             </PageWrapper>
         </>
     );

@@ -28,15 +28,7 @@ export default function IndexPage({ projects, homeData }) {
         <>
             <Head>
                 <title>Udsgn</title>
-                <meta
-                    name="description"
-                    content="Best digital designer evar!"
-                />
-                <meta
-                    name="viewport"
-                    content="width=device-width, initial-scale=1"
-                />
-                <link rel="icon" href="/favicon.ico" />
+                <meta name="description" content="U-dsgn" />
             </Head>
 
             <PageWrapper>

@@ -48,13 +48,22 @@
         max-width: 100%;
 
         &__inner {
-            margin-left: -4rem;
+            margin-left: -2rem;
             margin-top: -4rem;
         }
 
         img {
             width: auto;
             max-width: 100%;
+            min-width: 10rem;
+
+            @include breakpoint(medium) {
+                min-width: 15rem;
+            }
+
+            @include breakpoint(large) {
+                width: 100%;
+            }
         }
     }
 
@@ -73,11 +82,11 @@
             max-width: 40%;
 
             &__inner {
+                text-align: right;
                 margin-left: -3rem;
                 margin-right: -5rem;
                 margin-top: -4rem;
                 margin-bottom: -4rem;
-                text-align: right;
             }
         }
 

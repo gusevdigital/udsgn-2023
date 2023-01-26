@@ -8,19 +8,19 @@ const SectionText = ({ title, subtitle, text }) => {
                 <div className="row">
                     <div className="cell large-6">
                         {subtitle ? (
-                            <p className="project-section-text__subtitle">
+                            <p className="project-section-text__subtitle acc">
                                 {subtitle}
                             </p>
                         ) : null}
                         {title ? (
-                            <h3 className="project-section-text__title">
+                            <h3 className="project-section-text__title acc">
                                 {title}
                             </h3>
                         ) : null}
                     </div>
                     <div className="cell large-6">
                         <div
-                            className="project-section-text__text"
+                            className="project-section-text__text acc"
                             dangerouslySetInnerHTML={{
                                 __html: text?.replace(/\n/g, '<br />'),
                             }}
@@ -40,7 +40,7 @@ const SectionImage = ({ img }) => {
                 alt={''}
                 width={1920}
                 height={1150}
-                className="project-section-img"
+                className="project-section-img acc"
             />
         </section>
     );
@@ -60,12 +60,12 @@ const SectionQuote = ({ quote, source }) => {
                         <Image
                             src={IconQuote}
                             alt="Quote Sign"
-                            className="project-section-quote__sign"
+                            className="project-section-quote__sign acc"
                         />
                     </div>
                     <div className="cell large-6">
                         <div
-                            className="project-section-quote__quote"
+                            className="project-section-quote__quote acc"
                             dangerouslySetInnerHTML={{
                                 __html: quote
                                     ?.replace(/^\n/, '')
@@ -74,7 +74,7 @@ const SectionQuote = ({ quote, source }) => {
                             }}
                         ></div>
                         {source ? (
-                            <p className="project-section-quote__source">
+                            <p className="project-section-quote__source acc">
                                 — {source}
                             </p>
                         ) : null}

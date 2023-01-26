@@ -6,7 +6,7 @@ import { items } from '../data/nav';
 import { useLocomotiveScroll } from 'react-locomotive-scroll';
 import { usePathname } from 'next/navigation';
 
-const Header = ({ loading }) => {
+const Header = () => {
     const pathname = usePathname();
     const { scroll } = useLocomotiveScroll();
     const header = useRef();
@@ -14,6 +14,7 @@ const Header = ({ loading }) => {
     const isHidden = useRef(false);
     const [isOpen, setIsOpen] = useState(false);
     const [isHome, setIsHome] = useState(false);
+    const [eventSet, setEventSet] = useState(false);
 
     const forceUpdate = useForceUpdate();
 
@@ -33,9 +34,12 @@ const Header = ({ loading }) => {
     }, [pathname]);
 
     useEffect(() => {
-        scroll &&
-            header.current &&
+        if (scroll && header.current) {
+            if (eventSet) return;
+            setEventSet(true);
             scroll.on('scroll', e => {
+                if (!header.current) return;
+
                 const headerHeight =
                     header.current.getBoundingClientRect().height;
 
@@ -55,14 +59,8 @@ const Header = ({ loading }) => {
                     forceUpdate();
                 }
             });
-    }, [scroll]);
-
-    useEffect(() => {
-        if (!loading) {
-            isHidden.current = false;
-            forceUpdate();
         }
-    }, [loading]);
+    }, [scroll]);
 
     return (
         <motion.div

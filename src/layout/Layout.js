@@ -3,10 +3,9 @@ import { useEffect } from 'react';
 import Header from './Header';
 import Footer from './Footer';
 import Noise from './Noise';
-import Loader from './Loader';
 import { useLocomotiveScroll } from 'react-locomotive-scroll';
 
-const Layout = ({ children, loading }) => {
+const Layout = ({ children }) => {
     const { scroll } = useLocomotiveScroll();
 
     useEffect(() => {
@@ -18,11 +17,8 @@ const Layout = ({ children, loading }) => {
 
     return (
         <>
-            <Header loading={loading} />
             <Noise />
             {children}
-            <Footer />
-            <Loader loading={loading} />
         </>
     );
 };
