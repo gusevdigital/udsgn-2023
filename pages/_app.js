@@ -24,6 +24,7 @@ export default function App({ Component, pageProps }) {
                     name="viewport"
                     content="width=device-width, initial-scale=1.0"
                 />
+                <link rel="shortcut icon" href="/favicon.ico" />
             </Head>
             <ScrollContainer>
                 <main className={`App ${montserrat.className}`}>
