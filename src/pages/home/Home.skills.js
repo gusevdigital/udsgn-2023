@@ -13,8 +13,8 @@ const Skills = ({ skills }) => {
     };
 
     return (
-        <section className="section" data-scroll-section>
-            <div className="container overflow-hidden">
+        <section className="section overflow-hidden" data-scroll-section>
+            <div className="container">
                 <div className="row">
                     {skills.map((skill, i) => (
                         <div
