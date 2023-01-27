@@ -1,6 +1,5 @@
 'use client';
-import { motion, useIsPresent, AnimatePresence } from 'framer-motion';
-import { useRouter } from 'next/router';
+import { motion, useIsPresent } from 'framer-motion';
 
 const variants = {
     initial: { transform: 'scaleX(1)' },
@@ -8,27 +7,23 @@ const variants = {
     exit: { transform: 'scaleX(1)' },
 };
 
-function Transition({ children }) {
+function Transition() {
     const isPresent = useIsPresent();
-    const { asPath } = useRouter();
+
+    console.log('present', isPresent);
 
     return (
-        <AnimatePresence mode="wait">
-            <div key={asPath}>
-                {children}
-                <motion.div
-                    variants={variants}
-                    initial="initial"
-                    animate="animate"
-                    exit="exit"
-                    transition={{ duration: 1 }}
-                    className="transition"
-                    style={{
-                        originX: isPresent ? 0 : 1,
-                    }}
-                ></motion.div>
-            </div>
-        </AnimatePresence>
+        <motion.div
+            variants={variants}
+            initial="initial"
+            animate="animate"
+            exit="exit"
+            transition={{ duration: 0.5 }}
+            className="transition"
+            style={{
+                originX: isPresent ? 0 : 1,
+            }}
+        ></motion.div>
     );
 }
 

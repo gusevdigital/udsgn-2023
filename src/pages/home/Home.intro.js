@@ -10,14 +10,8 @@ const Intro = () => {
     return (
         <section className="home-intro" id="home" data-scroll-section>
             <Noise data-scroll data-scroll-sticky data-scroll-target="body" />
-            <div
-                className="container"
-                style={{
-                    paddingLeft: '0.5rem',
-                    paddingRight: '0.5rem',
-                }}
-            >
-                <h1 className="text-right acc">
+            <div className="container">
+                <h1 className="text-right acc home-intro__title">
                     Digital <i>Designer</i> <br /> & Artist
                 </h1>
             </div>

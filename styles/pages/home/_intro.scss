@@ -4,6 +4,13 @@
         padding-top: 7rem;
         overflow: hidden;
 
+        &__title {
+            padding-left: 1.5rem;
+            padding-right: 1.5rem;
+            margin-left: -1.5rem;
+            margin-right: -1.5rem;
+        }
+
         .noise {
             margin-top: -10rem;
             margin-bottom: -10rem;

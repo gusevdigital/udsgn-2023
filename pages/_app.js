@@ -5,7 +5,7 @@ import { Montserrat } from '@next/font/google';
 import ScrollContainer from '../src/layout/ScrollContainer';
 import Layout from '../src/layout/Layout';
 import { ToastContainer, toast } from 'react-toastify';
-import Transition from '../src/layout/Transition';
+import AnimatePresence from '../src/layout/AnimatePresense';
 
 const montserrat = Montserrat({
     subsets: ['latin'],
@@ -28,9 +28,9 @@ export default function App({ Component, pageProps }) {
             <ScrollContainer>
                 <main className={`App ${montserrat.className}`}>
                     <Layout>
-                        <Transition>
+                        <AnimatePresence>
                             <Component {...pageProps} />
-                        </Transition>
+                        </AnimatePresence>
                     </Layout>
                 </main>
             </ScrollContainer>

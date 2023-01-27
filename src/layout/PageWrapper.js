@@ -2,6 +2,7 @@ import { useEffect } from 'react';
 import { useLocomotiveScroll } from 'react-locomotive-scroll';
 import Header from './Header';
 import Footer from './Footer';
+import Transition from './Transition';
 
 const PageWrapper = ({ children }) => {
     const { scroll } = useLocomotiveScroll();
@@ -17,6 +18,7 @@ const PageWrapper = ({ children }) => {
             <Header />
             {children}
             <Footer />
+            <Transition />
         </>
     );
 };
