@@ -10,8 +10,6 @@ const variants = {
 function Transition() {
     const isPresent = useIsPresent();
 
-    console.log('present', isPresent);
-
     return (
         <motion.div
             variants={variants}

@@ -8,7 +8,7 @@ import { useRouter } from 'next/router';
 export const getStaticPaths = async () => {
     return {
         paths: [],
-        fallback: 'blocking',
+        fallback: true,
     };
 };
 
@@ -20,6 +20,11 @@ export const getStaticProps = async context => {
     );
 
     const data = await res.json();
+
+    if (data.code === 'broke' && data.data?.status === 404)
+        return {
+            notFound: true,
+        };
 
     return {
         props: {
@@ -33,9 +38,6 @@ const Project = ({ project }) => {
     const router = useRouter();
 
     if (router.isFallback) return <Loading />;
-
-    if (project?.data?.status && project.data.status === 404)
-        return <NotFound />;
 
     return (
         <>
