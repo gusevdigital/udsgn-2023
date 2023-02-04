@@ -52,7 +52,7 @@ const From = () => {
 
             const data = await response.json();
             if (response.status !== 200) throw new Error(data.message);
-
+            resetForm();
             toast.success(data.message);
         } catch (error) {
             console.error(error);
