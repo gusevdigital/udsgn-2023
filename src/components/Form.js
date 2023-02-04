@@ -73,8 +73,8 @@ const From = () => {
             <h3 className="text-green">Let's Create Something Together</h3>
             <p>
                 Fill in the form below, or wave at{' '}
-                <a href="mailto:ulia@u-dsgn.com" title="Email me">
-                    ulia@u-dsgn.com
+                <a href="mailto:udsgn.job@gmail.com" title="Email me">
+                    udsgn.job@gmail.com
                 </a>
             </p>
             <Formik
