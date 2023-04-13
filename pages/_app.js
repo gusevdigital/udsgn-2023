@@ -18,7 +18,7 @@ export default function App({ Component, pageProps }) {
         <>
             <Head>
                 <meta charSet="UTF-8" />
-                <meta name="keywords" content="studying, nextjs" />
+                <meta name="keywords" content="" />
                 <meta name="author" content="Gusev Digital" />
                 <meta
                     name="viewport"
